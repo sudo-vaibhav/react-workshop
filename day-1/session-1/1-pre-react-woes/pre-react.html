@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+    <style></style>
+  </head>
+  <body>
+    <div class="counter-container">
+      <div class="display" id="countDisplay">0</div>
+      <div id="evenOddText">Even</div>
+      <button onclick="decrement()">-</button>
+      <button onclick="increment()">+</button>
+      <div id="lastAction">No actions yet</div>
+    </div>
+
+    <script>
+      // We need to manually keep track of all DOM elements we want to update
+      const countDisplay = document.getElementById("countDisplay");
+      const evenOddText = document.getElementById("evenOddText");
+      const lastAction = document.getElementById("lastAction");
+
+      function updateOddOrEven() {
+        const count = parseInt(countDisplay.textContent);
+
+        // Manually handle class changes for styling
+        if (count % 2 === 0) {
+          countDisplay.className = "display even";
+          evenOddText.textContent = "Even";
+        } else {
+          countDisplay.className = "display odd";
+          evenOddText.textContent = "Odd";
+        }
+      }
+
+      function increment() {
+        const currentCount = parseInt(countDisplay.textContent);
+        countDisplay.textContent = currentCount + 1;
+        updateOddOrEven();
+        lastAction.textContent = "Last action: Increment";
+      }
+
+      function decrement() {
+        const currentCount = parseInt(countDisplay.textContent);
+        countDisplay.textContent = currentCount - 1;
+        updateOddOrEven();
+        lastAction.textContent = "Last action: Decrement";
+      }
+    </script>
+  </body>
+</html>

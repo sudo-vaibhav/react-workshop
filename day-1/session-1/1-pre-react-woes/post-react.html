@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Counter</title>
+    <!-- Load React from CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- Load Babel for JSX transpilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Load Water.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Your React component -->
+    <script type="text/babel">
+      const Counter = () => {
+        const [count, setCount] = React.useState(0);
+        return (
+          <div className="counter">
+            <div className={`number ${count % 2 === 0 ? "even" : "odd"}`}>
+              {count}
+            </div>
+            <div>{count % 2 === 0 ? "Even" : "Odd"}</div>
+            <button onClick={() => setCount(count - 1)}>-</button>
+            <button onClick={() => setCount(count + 1)}>+</button>
+          </div>
+        );
+      };
+      // Render the app
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<Counter />);
+    </script>
+  </body>
+</html>
