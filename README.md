@@ -9,9 +9,9 @@
 ## Day 1: React Fundamentals
 **Morning Session (1.5 hours)**
 - Introduction to React (45 minutes)
-  - What is React and why use it?
-  - Virtual DOM concept
-  - JSX syntax and rules
+  - What is React and why use it? - 
+  - Virtual DOM concept - 
+  - JSX syntax and rules 
   - Setting up development environment with Vite
 
 - Components and Props (45 minutes)

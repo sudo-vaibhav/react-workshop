@@ -5,7 +5,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
     />
-    <style></style>
+    <style>
+      /* body {
+        background-color: red;
+      } */
+    </style>
   </head>
   <body>
     <div class="counter-container">
@@ -15,7 +19,61 @@
       <button onclick="increment()">+</button>
       <div id="lastAction">No actions yet</div>
     </div>
+<script>
+  class Subject {
+    constructor() {
+      this.observers = [];
+    }
 
+    subscribe(observer) {
+      this.observers.push(observer);
+    }
+
+    notify(data) {
+      this.observers.forEach(observer => observer.update(data));
+    }
+  }
+
+  class DisplayObserver {
+    constructor() {
+      this.countDisplay = document.getElementById("countDisplay");
+      this.evenOddText = document.getElementById("evenOddText");
+      this.lastAction = document.getElementById("lastAction");
+    }
+
+    update(data) {
+      const count = data.count;
+      this.countDisplay.textContent = count;
+      if (count % 2 === 0) {
+        this.countDisplay.className = "display even";
+        this.evenOddText.textContent = "Even";
+      } else {
+        this.countDisplay.className = "display odd";
+        this.evenOddText.textContent = "Odd";
+      }
+      this.lastAction.textContent = `Last action: ${data.action}`;
+    }
+  }
+
+  const subject = new Subject();
+  const displayObserver = new DisplayObserver();
+  subject.subscribe(displayObserver);
+
+  function increment() {
+    const currentCount = parseInt(document.getElementById("countDisplay").textContent);
+    subject.notify({ count: currentCount + 1, action: "Increment" });
+  }
+
+  function decrement() {
+    const currentCount = parseInt(document.getElementById("countDisplay").textContent);
+    subject.notify({ count: currentCount - 1, action: "Decrement" });
+  }
+</script>
+  </body>
+</html>
+
+
+<!-- 
     <script>
       // We need to manually keep track of all DOM elements we want to update
       const countDisplay = document.getElementById("countDisplay");
@@ -48,6 +106,4 @@
         updateOddOrEven();
         lastAction.textContent = "Last action: Decrement";
       }
-    </script>
-  </body>
-</html>
+    </script> -->

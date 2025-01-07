@@ -19,14 +19,21 @@
     <script type="text/babel">
       const Counter = () => {
         const [count, setCount] = React.useState(0);
+        // let count = 0
         return (
           <div className="counter">
             <div className={`number ${count % 2 === 0 ? "even" : "odd"}`}>
               {count}
             </div>
             <div>{count % 2 === 0 ? "Even" : "Odd"}</div>
-            <button onClick={() => setCount(count - 1)}>-</button>
-            <button onClick={() => setCount(count + 1)}>+</button>
+            <button onClick={() => {
+              setCount(count - 1)
+              // count = count-1
+            }}>-</button>
+            <button onClick={() => {
+              // count = count+1
+              setCount(count + 1) // push
+            }}>+</button>
           </div>
         );
       };
