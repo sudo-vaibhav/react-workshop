@@ -56,16 +56,14 @@
 ## Day 3: Real-World Application Building
 **Morning Session (1.5 hours)**
 - Routing and Navigation (45 minutes)
-  - React Router setup
-  - Route parameters
-  - Nested routes
-  - Practical Exercise: Create a multi-page application structure
-
-- Modern Form Handling (45 minutes)
-  - Form handling patterns
-  - Basic form validation
-  - Custom hooks for forms
-  - Practical Exercise: Build a registration form with validation
+  - React Developer Tools - come back
+  - React Router setup - done
+    - Route parameters, nested pages - done
+  - Custom Hooks - covered - made our own hook
+  - Practical Exercise: Create a multi-page application structure, using custom - done
+  - things are not covered - 
+    - use function (combining the abilities of multiple hooks)
+    - suspense
 
 **Afternoon Session (1 hour)**
 - The Future of React & Project Work
@@ -73,15 +71,15 @@
     - React Server Components
     - Next.js and modern frameworks
     - Server-side rendering concepts
-  
-  - Mini-Project (40 minutes)
-    - Build a small but complete application incorporating:
-      - Multiple components
-      - State management
-      - Context API
-      - Data fetching
-      - Basic routing
-    - Suggested Project: Simple blog post viewer with comments
+    - Difference in build sizes
+    - Benefits of Next JS:
+      - disable javascript demo
+      - out of the box support for pages
+      - image optimisation
+      - ready deployment option with Vercel (SaaS)
+      - support for APIs
+      - server actions
+    - suspense boundaries and use
 
 ## Workshop Prerequisites
 - Basic understanding of HTML, CSS, and JavaScript (ES6+)
